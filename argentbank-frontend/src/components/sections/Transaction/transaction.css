@@ -1,0 +1,83 @@
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+}
+
+thead {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+th,
+td {
+  text-align: left; /* Centrer horizontalement */
+  padding: 8px;
+  vertical-align: middle; /* Centrer verticalement */
+}
+
+tr {
+  margin: 0 auto;
+  width: 100%;
+}
+
+th {
+  background-color: transparent;
+}
+
+.deal-line {
+  color: #fff;
+  background-color: #00bc77;
+  border-radius: 3px;
+}
+
+.chevron-open {
+  transform: rotate(-180deg);
+  transition: transform 0.5s ease;
+}
+
+.content-expend {
+  padding: spacer(0.7) spacer(0.6);
+  padding-top: 4rem;
+  max-height: 500px;
+}
+
+.lineDown {
+  animation: 1s anim-lineDown ease-out forwards;
+}
+
+.fa-chevron-up {
+  cursor: pointer;
+}
+
+@keyframes anim-lineDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.dateTable {
+  width: 200px;
+}
+
+/* .descTable {
+}
+
+.amountTable {
+}
+
+.balanceTable {
+} */

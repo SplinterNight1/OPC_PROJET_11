@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Argent Bank Checking (x8349)",
+    "amount": "$2,082.79",
+    "amountDescription": "Available Balance",
+    "transactions": [
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": "$8.00",
+        "details": {
+          "transactionType": "Purchase",
+          "category": "Food",
+          "note": "Bakery items"
+        }
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": "$298.00",
+        "details": {
+          "transactionType": "Purchase",
+          "category": "Clothing",
+          "note": "Winter clothing"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Argent Bank Savings (x6712)",
+    "amount": "$10,928.42",
+    "amountDescription": "Available Balance"
+  },
+  {
+    "title": "Argent Bank Credit Card (x8349)",
+    "amount": "$184.30",
+    "amountDescription": "Current Balance"
+  }
+]

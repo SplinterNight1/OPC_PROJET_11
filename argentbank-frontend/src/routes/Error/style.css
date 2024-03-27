@@ -1,0 +1,32 @@
+.errorpage-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.errorpage-title {
+  font-size: 3rem;
+}
+.errorpage-text {
+  font-size: 1.25rem;
+  color: #005834;
+}
+
+.errorpage-wrong {
+  color: #00bc78;
+}
+
+.errorpage-link {
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.errorpage-link:active {
+  color: red;
+}
+
+.errorpage-lin:visited {
+  color: red;
+}
