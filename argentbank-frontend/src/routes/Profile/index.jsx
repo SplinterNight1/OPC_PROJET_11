@@ -1,4 +1,4 @@
-import AccountProfileHeader from "../../components/AccountProfileHeader";
+import AccountProfileHeader from "../../components/sections/AccountProfileHeader";
 import AccountsCards from "../../components/sections/AccountsCards";
 
 import "./style.css";

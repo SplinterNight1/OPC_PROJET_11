@@ -1,18 +1,23 @@
 import "./style.css";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { editUserName, getUserProfile } from "../../actions/user.action";
-import PropTypes from "prop-types";
+import { editUserName, getUserProfile } from "../../../actions/user.action";
+import PropTypes from "prop-types"; // Import de PropTypes pour la vérification des types des props
 
 const EditUserInfo = ({ onClose }) => {
+  // Récupération du profil utilisateur depuis le state Redux
   const userProfile = useSelector((state) => state.userReducer.userProfile);
+
   const [newUserName, setNewUserName] = useState(userProfile.userName);
+
   const dispatch = useDispatch();
 
   const handleEditUserName = async () => {
     try {
+      // Dispatch de l'action d'édition du nom d'utilisateur avec le nouveau nom
       await dispatch(editUserName(newUserName));
+      // Dispatch de l'action pour récupérer à nouveau le profil utilisateur (mise à jour)
       await dispatch(getUserProfile());
       onClose();
     } catch (error) {

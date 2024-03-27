@@ -1,6 +1,6 @@
 import "./style.css";
 import { useState } from "react";
-import EditUserInfo from "../EditUserInfo";
+import EditUserInfo from "../../sections/EditUserInfo";
 import { useSelector } from "react-redux";
 
 export default function AccountProfileHeader() {
