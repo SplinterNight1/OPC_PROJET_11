@@ -85,5 +85,5 @@ const EditUserInfo = ({ onClose }) => {
 export default EditUserInfo;
 
 EditUserInfo.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired, // La prop onClose doit être une fonction et est requise / on aurai pu utiliser du TS pour ce projet
 };
