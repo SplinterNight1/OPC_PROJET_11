@@ -5,6 +5,8 @@ import { useState } from "react";
 import { editUserName, getUserProfile } from "../../../actions/user.action";
 import PropTypes from "prop-types"; // Import de PropTypes pour la vérification des types des props
 
+import { z } from "zod";
+
 const EditUserInfo = ({ onClose }) => {
   // Récupération du profil utilisateur depuis le state Redux
   const userProfile = useSelector((state) => state.userReducer.userProfile);
@@ -13,21 +15,53 @@ const EditUserInfo = ({ onClose }) => {
 
   const dispatch = useDispatch();
 
+  const userNameSchema = z.string().regex(/^[a-zA-Z0-9]+$/, {
+    message: "User name must contain only letters and numbers.",
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleEditUserName = async () => {
+    //We could also add a maximum character limit
+    //Verify if user entered nothing or added only spaces
+    if (!newUserName.trim()) {
+      setErrorMessage("User name cannot be empty or contain only spaces.");
+      // Delete message after 5 seconds
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+      return;
+    }
+
     try {
-      // Dispatch de l'action d'édition du nom d'utilisateur avec le nouveau nom
+      const dt = userNameSchema.parse(newUserName);
+      console.log("🚀 ~ handleEditUserName ~ dt:", dt);
+
+      // Dispatching the action to edit the username with the new name
       await dispatch(editUserName(newUserName));
-      // Dispatch de l'action pour récupérer à nouveau le profil utilisateur (mise à jour)
+      // Dispatching the action to fetch the user profile again (updated)
       await dispatch(getUserProfile());
       onClose();
     } catch (error) {
       console.error("Error editing user name:", error);
+      setErrorMessage("User name must contain only letters and numbers.");
+
+      // Delete message after 5 seconds
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
     }
   };
 
   const handleCancel = () => {
     setNewUserName(userProfile.userName);
     onClose();
+  };
+
+  const handleChange = (e) => {
+    setNewUserName(e.target.value);
+    // Effacer le message d'erreur lorsque l'utilisateur commence à modifier le champ
+    setErrorMessage("");
+    console.log("e.target.value", e.target.value);
   };
 
   return (
@@ -38,11 +72,14 @@ const EditUserInfo = ({ onClose }) => {
           type="text"
           id="userName"
           value={newUserName}
-          onChange={(e) => setNewUserName(e.target.value)}
+          // onChange={(e) => setNewUserName(e.target.value)}
+          onChange={handleChange}
           placeholder="Enter a new user name"
           autoComplete="section-edit userName"
         />
       </div>
+
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
 
       <div className="label-firstName">
         <label htmlFor="firstName">First name:</label>

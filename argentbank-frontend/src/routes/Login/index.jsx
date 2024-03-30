@@ -58,6 +58,7 @@ export default function SignIn() {
           </div>
 
           <button type="submit" className="sign-in-button">
+            <i className="fa fa-user-circle sign-in-icon"></i>
             Sign In
           </button>
         </form>

@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers";
 
-// !CRITIC, change to false before going prod
+// CRITIC, change to false before going prod
 const store = configureStore({
   reducer: rootReducer,
   devTools: true,

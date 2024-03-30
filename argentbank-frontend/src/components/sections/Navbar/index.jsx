@@ -5,8 +5,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout, getUserProfile } from "../../../actions/user.action";
 import { useEffect } from "react";
+// import { faUserCircle } from "@fortawesome/free-solid-svg-icons"; // Import the specific icon you want to use
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.css";
+// import "../../../assets/font-awesome/css/font-awesome.min.css";
 
 export default function Navbar() {
   const userProfile = useSelector((state) => state.userReducer.userProfile);
@@ -65,6 +68,7 @@ export default function Navbar() {
         <div>
           <NavLink to="/Login" className="main-nav-item">
             <i className="fa fa-circle-user"></i>
+            <i className="fa fa-user-circle sign-in-icon"></i>
             Sign In
           </NavLink>
         </div>

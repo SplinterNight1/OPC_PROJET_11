@@ -1,34 +1,41 @@
 .editUserInfo {
-    display : flex;
-    align-items: center;
-    flex-direction: column;
-    background: #fff;
-    color: #000;
-    gap: 20px;
-    padding-top: 20px;
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+  gap: 20px;
+  padding-top: 20px;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
 }
 
-.EditUserBtn { 
-    display: flex;
-    flex-direction: row;
-    gap : 20px;
-    margin-top: 20px;
+.EditUserBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.label-userName, .label-firstName, .label-lastName {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    font-family: Avenir, Arial, Helvetica, sans-serif;
-    color: #000
+.label-userName,
+.label-firstName,
+.label-lastName {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  color: #000;
 }
 
-#firstName, #lastName {
-    opacity: 0.5;
+#firstName,
+#lastName {
+  opacity: 0.5;
+}
+
+.error-message {
+  color: red;
 }

@@ -104,6 +104,8 @@ paths:
   # added transactions / transactions/{transactionId} / user/balance/
   /transactions:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions
       summary: Get all transactions for the current month grouped by account
@@ -142,6 +144,8 @@ paths:
           description: Internal Server Error
   /transactions/{transactionId}:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions
       summary: Get details of an user transaction
@@ -164,6 +168,8 @@ paths:
         "500":
           description: Internal Server Error
     put:
+      security:
+        - Bearer: []
       tags:
         - Transactions
       summary: Update / delete details of a user transaction
@@ -179,7 +185,7 @@ paths:
           description: Updated transaction payload
           required: true
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionWithoutAmount"
       produces:
         - application/json
       responses:
@@ -195,6 +201,8 @@ paths:
           description: Internal Server Error
   /user/balance/:
     post:
+      security:
+        - Bearer: []
       tags:
         - balance
       summary: Get the total user balance
@@ -234,6 +242,28 @@ definitions:
         type: string
         format: date-time
         description: Date of the transaction
+      description:
+        type: object
+        properties:
+          transactionType:
+            type: string
+            description: Transaction type
+          Category:
+            type: string
+            description: Category of transaction (example food)
+          Note:
+            type: string
+            description: Additional note
+  TransactionWithoutAmount:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier for the transaction
+      date:
+        type: string
+        format: date-time
+        description: Date of the transaction
       amount:
         type: object
         properties:
@@ -255,6 +285,7 @@ definitions:
           Note:
             type: string
             description: Additional note
+
   User:
     # added userId
     properties:
