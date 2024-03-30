@@ -43,7 +43,7 @@ export default function Navbar() {
         <div>
           <nav>
             <NavLink to="/Profile" className="main-nav-item">
-              <i className="fa-solid fa-circle-user"></i>
+              <i className="fa fa-user-circle"></i>
               {userProfile ? userProfile.userName : "Loading..."}
             </NavLink>
             <NavLink to="/" onClick={handleLogout} className="main-nav-item">
@@ -67,9 +67,8 @@ export default function Navbar() {
         </NavLink>
         <div>
           <NavLink to="/Login" className="main-nav-item">
-            <i className="fa fa-circle-user"></i>
-            <i className="fa fa-user-circle sign-in-icon"></i>
-            Sign In
+            <i className="fa fa-user-circle"></i>
+            {" Sign In"}
           </NavLink>
         </div>
       </nav>

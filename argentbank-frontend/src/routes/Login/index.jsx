@@ -21,7 +21,7 @@ export default function SignIn() {
   return (
     <main className="main bg-dark">
       <section className="sign-in-content">
-        <i className="fa fa-user-circle sign-in-icon"></i>
+        <i className="fa fa-user-circle"></i>
         <h1>Sign In</h1>
         <form onSubmit={handleSignIn}>
           <div className="input-wrapper">
@@ -45,20 +45,18 @@ export default function SignIn() {
               autoComplete="current-password"
               required
             />
-            <div className="input-remember">
-              <input type="checkbox" id="remember-me" />
-              <label htmlFor="remember-me">Remember me</label>
-            </div>
-            <div style={{ display: error ? "block" : "none" }}>
-              <p className="errorMessage">
-                Connection failed :<br /> Invalid Email or Password <br />{" "}
-                Please retry
-              </p>
-            </div>
           </div>
-
+          <div className="input-remember">
+            <input type="checkbox" id="remember-me" />
+            <label htmlFor="remember-me">Remember me</label>
+          </div>
+          <div style={{ display: error ? "block" : "none" }}>
+            <p className="errorMessage">
+              Connection failed :<br /> Invalid Email or Password <br /> Please
+              retry
+            </p>
+          </div>
           <button type="submit" className="sign-in-button">
-            <i className="fa fa-user-circle sign-in-icon"></i>
             Sign In
           </button>
         </form>
