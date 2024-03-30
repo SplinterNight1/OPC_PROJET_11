@@ -130,7 +130,7 @@ paths:
           description: Transaction payload
           required: true
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionWithoutAmount"
       produces:
         - application/json
       responses:
@@ -242,6 +242,15 @@ definitions:
         type: string
         format: date-time
         description: Date of the transaction
+      amount:
+        type: object
+        properties:
+          value:
+            type: number
+            description: Numeric value of the transaction amount
+          currency:
+            type: string
+            description: Currency of the transaction amount
       description:
         type: object
         properties:
@@ -264,15 +273,6 @@ definitions:
         type: string
         format: date-time
         description: Date of the transaction
-      amount:
-        type: object
-        properties:
-          value:
-            type: number
-            description: Numeric value of the transaction amount
-          currency:
-            type: string
-            description: Currency of the transaction amount
       description:
         type: object
         properties:
